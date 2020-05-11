@@ -6,7 +6,7 @@
 package ec.edu.ups.vista;
 import java.util.Scanner;
 import java.util.List;
-import ec.edu.ups.modelo.*;
+import ec.edu.ups.modelo.Usuario;
 /**
  *
  * @author Dutan2000
@@ -74,9 +74,9 @@ public class vistaUsuario {
     } 
     
     //metodo listar telefonos
-    public void verTelefono(List<Telefono> telefono){
-        for (Telefono telefono1 : telefono) {
-            System.out.println("datos del telefono: "+ telefono1);
+    public void verTelefono(List<Usuario> usuario){
+        for (Usuario usuario1 : usuario) {
+            System.out.println("datos del telefono: "+ usuario1);
         }
     }
 }
