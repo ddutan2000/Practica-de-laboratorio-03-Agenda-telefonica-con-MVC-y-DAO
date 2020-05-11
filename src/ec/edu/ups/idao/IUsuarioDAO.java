@@ -13,7 +13,7 @@ import ec.edu.ups.modelo.Usuario;
 public interface IUsuarioDAO {
      //Métodos CRUD
     public void create(Usuario usuario);
-    public Usuario read(String cedula);
+    public Usuario read(int codigo);
     public void update(Usuario usuario);
     public void delete(Usuario usuario);   
     public List<Usuario> findAll();
