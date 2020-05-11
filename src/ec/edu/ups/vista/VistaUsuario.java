@@ -74,6 +74,10 @@ public class VistaUsuario {
     } 
     
     //metodo listar telefonos
+    public void verUsuario(Usuario usuario){
+        System.out.println("Datos del Usuario: "+ usuario);
+    }
+    
     public void verUsuario(List<Usuario> usuario){
         for (Usuario usuario1 : usuario) {
             System.out.println("datos del telefono: "+ usuario1);
