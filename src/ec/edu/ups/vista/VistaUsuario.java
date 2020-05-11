@@ -71,8 +71,8 @@ public class VistaUsuario {
     } 
     
     //metodo listar telefonos
-    public void verTelefono(Usuario usuario){
-        System.out.println("Datos del Usuario: "+ usuario);
+    public void verTelefono(Telefono telefono){
+        System.out.println("Datos del telefono: "+ telefono);
     }
     
     public void verTelefonos(List<Telefono> telefonos){
