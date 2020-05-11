@@ -6,7 +6,6 @@
 package ec.edu.ups.modelo;
 
 import java.util.Objects;
-
 /**
  *
  * @author Dutan2000
@@ -18,12 +17,16 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contraseña;
+    private Telefono[] telefonos;
     
     //constructor
 
     public Usuario() {
     }
 
+    public Usuario(int numeroDeTelefonos){
+        telefonos= new Telefono[numeroDeTelefonos];
+    }
     public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {
         this.cedula = cedula;
         this.nombre = nombre;
@@ -100,7 +103,16 @@ public class Usuario {
         }
         return true;
     }
-
+    
+    public void agregarTelefono(int codigo, String numero, String tipo, String operadora){
+        Telefono telefono = new Telefono(codigo, numero, tipo, operadora);
+        for (int i = 0; i < telefonos.length; i++) {
+            if(telefonos[i]==null){
+                telefonos[i]=telefono;
+                break;
+            }
+        }
+    }
     @Override
     public String toString() {
         return "\nUsuario" + "\nCedula: " + cedula + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCorreo=" + correo + "\nContraseña: " + contraseña ;
