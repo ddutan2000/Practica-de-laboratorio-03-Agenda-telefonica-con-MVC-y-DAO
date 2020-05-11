@@ -20,6 +20,9 @@ public class Telefono {
 
     public Telefono() {
     }
+
+    public Telefono(int codigo, String numero, String tipo, String operadora) {
+    }
     
     //getters y setters
 
