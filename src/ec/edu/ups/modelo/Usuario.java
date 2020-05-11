@@ -104,6 +104,7 @@ public class Usuario {
         return true;
     }
     
+    //metodo agregar telefono
     public void agregarTelefono(int codigo, String numero, String tipo, String operadora){
         Telefono telefono = new Telefono(codigo, numero, tipo, operadora);
         for (int i = 0; i < telefonos.length; i++) {
