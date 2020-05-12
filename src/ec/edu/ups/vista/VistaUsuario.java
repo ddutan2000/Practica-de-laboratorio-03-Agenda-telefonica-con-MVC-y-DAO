@@ -35,8 +35,8 @@ public class VistaUsuario {
         String tipo =entrada.next();
         System.out.print("Operadora: ");
         String operadora=entrada.next();
-        Telefono t1 =new Telefono(codigo, numero, tipo, operadora);
-        return new (Usuario)t1;
+        
+        return (Usuario)Telefono(codigo, numero, tipo, operadora);
     }
     
     
@@ -49,7 +49,7 @@ public class VistaUsuario {
         String numero = entrada.next();
         String tipo = entrada.next();
         String operadora=entrada.next();        
-        return new (Usuario) Telefono(codigo, numero, tipo, operadora);
+        return (Usuario) Telefono(codigo, numero, tipo, operadora);
     } 
     
     //metodo eliminar 
@@ -58,7 +58,7 @@ public class VistaUsuario {
         System.out.println("ingrese codigo del telefono que desea guardar");
         int codigo =entrada.nextInt();
         
-        return new (Usuario)Telefono(codigo, null, null, null)
+        return (Usuario)Telefono(codigo, null, null, null)
     }
     
     //metodo buscar telefono
