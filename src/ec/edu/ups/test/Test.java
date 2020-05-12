@@ -41,7 +41,9 @@ public class Test {
                         System.out.println("ingrese su contraseña: ");
                         String contresenia=input.next();
 
-                    
+                    case 2: 
+                        controlador.registrar();
+                        
                 }
             } catch (Exception e) {
             }
