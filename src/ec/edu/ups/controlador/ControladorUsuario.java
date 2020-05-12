@@ -39,17 +39,17 @@ public class ControladorUsuario {
     public void verUsuario(){
         int codigo =vistaUsuario.buscarTelefono();
         usuario=usuarioDAO.read(codigo);
-        vistaUsuario.verTelefono(telefono);
+        vistaUsuario.verTelefono(usuario);
     }
     //llamar a DAO para actualizar un usuario
     public void actualizar(){
-        usuario=vistaUsuario.modificarUsuario();
+        usuario=vistaUsuario.modificarTelefono();
         usuarioDAO.update(usuario);
     }
     
     //eliminar un cliente 
     public void eliminar(){
-        usuario = vistaUsuario.eliminarUsuario();
+        usuario = vistaUsuario.eliminarTelefono();
         usuarioDAO.delete(usuario);
         
     }
@@ -58,6 +58,6 @@ public class ControladorUsuario {
     public void verUsuarios(){
         List<Usuario>usuarios;
         usuarios =usuarioDAO.findAll();
-        vistaUsuario.verUsuario(usuario);
+        vistaUsuario.verTelefono(usuario);
     }
 }
