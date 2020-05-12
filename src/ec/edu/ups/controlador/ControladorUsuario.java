@@ -31,15 +31,15 @@ public class ControladorUsuario {
     
     //metodo DAO para guardar un usuario
     public void registrar(){
-       usuario= vistaUsuario.registrarusuario();
+       usuario= vistaUsuario.registarTelefono();
        usuarioDAO.create(usuario);
     }
     
     //llamar al DAO para obtener usuario por la cedula y luego muestra en la vista 
     public void verUsuario(){
-        String cedula =vistaUsuario.buscarUsuario();
-        usuario=usuarioDAO.read(cedula);
-        vistaUsuario.verUsuario(usuario);
+        int codigo =vistaUsuario.buscarTelefono();
+        usuario=usuarioDAO.read(codigo);
+        vistaUsuario.verTelefono(telefono);
     }
     //llamar a DAO para actualizar un usuario
     public void actualizar(){

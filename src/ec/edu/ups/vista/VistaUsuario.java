@@ -36,7 +36,7 @@ public class VistaUsuario {
         System.out.print("Operadora: ");
         String operadora=entrada.next();
         Telefono t1 =new Telefono(codigo, numero, tipo, operadora);
-        return (Usuario)t1;
+        return new (Usuario)t1;
     }
     
     
