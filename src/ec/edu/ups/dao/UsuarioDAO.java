@@ -6,6 +6,7 @@
 package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.IUsuarioDAO;
+import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.modelo.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +19,11 @@ import java.util.Iterator;
 public class UsuarioDAO implements IUsuarioDAO {
 
     private List<Usuario> listaUsuario;
+    private List<Telefono> listaTelefono;
 
     public UsuarioDAO() {
         listaUsuario = new ArrayList<>();
+        listaTelefono= new ArrayList<>();
     }
 
     @Override
@@ -29,7 +32,7 @@ public class UsuarioDAO implements IUsuarioDAO {
     }
 
     @Override
-    public Usuario read(int codigo) {
+    public Usuario read(String cedula) {
         for (Usuario usuario : listaUsuario) {
             if (usuario.getCedula().equals(cedula)) {
                 return usuario;
