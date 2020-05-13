@@ -78,7 +78,7 @@ public class VistaUsuario {
         System.out.println("Datos del usuario: "+ usuario);
     }
     
-    public void verTelefonos(List<Usuario> usuarios){
+    public void verUsuario(List<Usuario> usuarios){
         for (Usuario usuario : usuarios) {
             System.out.println("Datos del usuario: "+ usuario);
         }
