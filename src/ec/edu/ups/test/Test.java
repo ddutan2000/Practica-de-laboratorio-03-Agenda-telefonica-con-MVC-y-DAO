@@ -5,53 +5,58 @@
  */
 package ec.edu.ups.test;
 
-import ec.edu.ups.controlador.ControladorUsuario;
-import ec.edu.ups.modelo.Usuario;
-import ec.edu.ups.vista.VistaUsuario;
+import ec.edu.ups.controlador.*;
+import ec.edu.ups.dao.*;
+import ec.edu.ups.idao.*;
+import ec.edu.ups.modelo.*;
+import ec.edu.ups.vista.*;
 import java.util.Scanner;
-
 /**
  *
  * @author Dutan2000
  */
 public class Test {
     public static void main(String[] args){
-        //scanner
-        Scanner input=new Scanner(System.in);
-        //vista
-        VistaUsuario vista=new VistaUsuario();
-        //controlador
-        ControladorUsuario controlador =new ControladorUsuario(vista);
+        Scanner input =new Scanner(System.in);
         
-        //modelo
-        boolean salir=true;
+        //vista
+        VistaUsuario vistaU= new VistaUsuario();
+        VistaTelefono vistaT=new VistaTelefono();
+        
+        //DAO
+        UsuarioDAO usuarioDAO =new UsuarioDAO();
+        TelefonoDao telefonoDAO=new TelefonoDao();
+        
+        //controlador
+        ControladorUsuario controladorUsuario= new ControladorUsuario(vistaU, usuarioDAO, vistaT, telefonoDAO);
+        ControladorTelefono controladorTelefono=new ControladorTelefono(vistaT, telefonoDAO);
+        boolean salir= false;
         int opcion;
         
+        //menu
         while(!salir){
-            System.out.println("Bienvenido");
-            System.out.println("Eliga una opcion\n1.Ingresar\n2.Registrarse");
+            System.out.println("Bienvenido al programa de Denys");
+            System.out.println("1.Registrarse \n2.Ya tengo cuenta\n3.Salir");
             try {
                 System.out.println("Eliga una opcion");
                 opcion=input.nextInt();
                 
-                switch (opcion){
-                    case 1: 
-                        System.out.println("Ingrese correo electronico: ");
-                        String correo=input.next();                      
-                        System.out.println("ingrese su contraseña: ");
-                        String contresenia=input.next();
-
-                    case 2: 
-                        controlador.registrar();
+                switch(opcion){
+                    case 1:
+                        int opcion1;
+                        boolean salir1=false;
+                        //registrar un usuario
+                        controladorUsuario.registrar();
+                        //menu secudnario
+                        while(!salir){
+                        System.out.println("Que desea hacer");
                         
-                }
-            } catch (Exception e) {
-            }
-{
+                        }
+                    case
+                } 
                 
+            } catch (Exception e) {
             }
         }
         
-        
-    }
 }
