@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista;
-import ec.edu.ups.modelo.Telefono;
+
 import java.util.Scanner;
 import java.util.List;
 import ec.edu.ups.modelo.Usuario;
@@ -24,60 +24,63 @@ public class VistaUsuario {
     
     
     //metodo registrar
-    public Usuario registarTelefono(){
+    public Usuario registarUsuario(){
         entrada=new Scanner(System.in);
-        System.out.println("Ingrese los datos del telefono");
-        System.out.println("Codigo: ");
-        int codigo=entrada.nextInt();
-        System.out.print("Numero: ");
-        String numero= entrada.next();
-        System.out.print("Tipo: ");
-        String tipo =entrada.next();
-        System.out.print("Operadora: ");
-        String operadora=entrada.next();
+        System.out.println("Ingrese los datos del Usuario");
+        System.out.println("Cedula: ");
+        String cedula=entrada.next();
+        System.out.print("Nombre: ");
+        String nombre= entrada.next();
+        System.out.print("Apellido: ");
+        String apellido =entrada.next();
+        System.out.print("Correo: ");
+        String correo=entrada.next();
+        System.out.println("Contraseña: ");
+        String contrasenia=entrada.next();
         
-        return (Usuario)Telefono(codigo, numero, tipo, operadora);
+        return new Usuario(cedula, nombre, apellido, correo, contrasenia);
     }
     
     
     //metodod actualizar
-    public Usuario modificarTelefono(){
+    public Usuario modificarUsuario(){
         entrada=new Scanner(System.in);
-        System.out.println("Ingresa codigo del telefono que desea modificar");
-        int codigo = entrada.nextInt();
-        System.out.println("Ingrese los nuevos Datos (numero, tipo, operadora)");
-        String numero = entrada.next();
-        String tipo = entrada.next();
-        String operadora=entrada.next();        
-        return (Usuario) Telefono(codigo, numero, tipo, operadora);
+        System.out.println("Ingresa la cedula del usuario que desea modificar");
+        String cedula = entrada.next();
+        System.out.println("Ingrese los nuevos datos del usuario (nombre, apellido, correo y contrseña)");
+        String nombre = entrada.next();
+        String apellido = entrada.next();
+        String correo=entrada.next();
+        String contrsenia=entrada.next();
+        return new Usuario(cedula, nombre, apellido, correo, contrsenia);
     } 
     
     //metodo eliminar 
-    public Usuario eliminarTelefono(){
+    public Usuario eliminarUsuario(){
         entrada=new Scanner(System.in);
-        System.out.println("ingrese codigo del telefono que desea guardar");
-        int codigo =entrada.nextInt();
+        System.out.println("Ingrese la cedula del usuario que desea eliminar");
+        String cedula =entrada.next();
         
-        return (Usuario)Telefono(codigo, null, null, null)
+        return new Usuario(cedula, null, null, null, null);
     }
     
     //metodo buscar telefono
-    public int buscarTelefono(){
+    public String buscarUsuario(){
         entrada=new Scanner (System.in);
-        System.out.println("ingrese el codigo de telefono que desea encontrar");
-        int codigo =entrada.nextInt();
+        System.out.println("Ingrese la cedula del usuario que desea buscar");
+        String cedula =entrada.next();
         
-        return codigo;
+        return cedula;
     } 
     
     //metodo listar telefonos
-    public void verTelefono(Telefono telefono){
-        System.out.println("Datos del telefono: "+ telefono);
+    public void verUsuario(Usuario usuario){
+        System.out.println("Datos del usuario: "+ usuario);
     }
     
-    public void verTelefonos(List<Telefono> telefonos){
-        for (Telefono telefono1 : telefonos) {
-            System.out.println("datos del telefono: "+ telefono1);
+    public void verTelefonos(List<Usuario> usuarios){
+        for (Usuario usuario : usuarios) {
+            System.out.println("Datos del usuario: "+ usuario);
         }
     }
 }
