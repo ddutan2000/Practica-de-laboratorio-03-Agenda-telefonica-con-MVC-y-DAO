@@ -11,6 +11,7 @@ import ec.edu.ups.idao.*;
 import ec.edu.ups.modelo.*;
 import ec.edu.ups.vista.*;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 /**
  *
  * @author Dutan2000
@@ -49,9 +50,44 @@ public class Test {
                         controladorUsuario.registrar();
                         //menu secudnario
                         while(!salir){
-                        System.out.println("Que desea hacer");
+                        System.out.println("Que quiere hacer");
+                        System.out.println("1.Registrar Telefono\n2.Modificar Telefono"
+                                + "\n3.Eliminar telefono\n4.Buscar Telefono\n5.Listar telefonos\n6.Salir");
+                            try {
+                                System.out.println("Elija una opcion");
+                                opcion1=input.nextInt();
+                                
+                                switch (opcion1){
+                                    case 1:
+                                        controladorTelefono.registrar();
+                                        break;
+                                    case 2:
+                                        controladorTelefono.actulizar();
+                                        break;
+                                    case 3:
+                                        controladorTelefono.eliminar();
+                                        break;
+                                    case 4: 
+                                        controladorTelefono.verTelefono();
+                                        break;
+                                    case 5:
+                                        controladorTelefono.verTelefonos();
+                                        break;
+                                    case 6:
+                                        salir1=true;
+                                        break;
+                                    default: 
+                                        System.out.println("Solo numeros entre 1 y 6");
+                                        
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Debes ingresar un numero");
+                                input.nextInt();
+                            }
                         
                         }
+                    case 2:
+                        
                 } 
                 
             } catch (Exception e) {
