@@ -79,7 +79,7 @@ public class Usuario {
     }
     //metodos de agregacion 
 
-    public void registrarTelefono(Telefono telefono) {
+    public void agregarTelefono(Telefono telefono) {
         telefonos.add(telefono);
     }
 
