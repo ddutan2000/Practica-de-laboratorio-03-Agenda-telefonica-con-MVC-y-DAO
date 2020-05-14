@@ -418,9 +418,13 @@ public class Usuario
     }
 
  /**ec.edu.ups.IDAO**
- **clase IUsarioDAO**
- *
- *dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipos Usuario y un String. 
+ 
+ **Clase IUsarioDAO**
+
+    public interface IUsuarioDAO{
+    
+ /**metodos CRUD**
+ Dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipos Usuario y un String. 
  */
 `   public interface IUsuarioDAO{
 
@@ -465,7 +469,7 @@ public class TelefonoDao implements ITelefono{
         listaTelefono=new ArrayList<>();
     }
   /**metodos CRUD**
-  *estos metods impementan  
+  *Estos metodos impementan los metodos de la interface Itelefono. Etos metodos permiten Crear, leer o confirmar, actualizar, borrar y listar los objetos de tipo Telefono.    
 
     @Override
     public void create(Telefono telefono) {
@@ -513,7 +517,61 @@ public class TelefonoDao implements ITelefono{
         return listaTelefono;
     }
 }
+/**
 
+public class UsuarioDAO implements IUsuarioDAO {
+
+    private List<Usuario> listaUsuario;
+
+    public UsuarioDAO() {
+        listaUsuario = new ArrayList<>();
+    }
+
+    @Override
+    public void create(Usuario usuario) {
+        listaUsuario.add(usuario);
+    }
+
+    @Override
+    public Usuario read(String cedula) {
+        for (Usuario usuario : listaUsuario) {
+            if (usuario.getCedula().equals(cedula)) {
+                return usuario;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void update(Usuario usuario) {
+        for (int i = 0; i < listaUsuario.size(); i++) {
+            Usuario u = listaUsuario.get(i);
+            if (u.getCedula().equals(usuario.getCedula())) {
+                listaUsuario.set(i, usuario);
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void delete(Usuario usuario) {
+        Iterator<Usuario> it =listaUsuario.iterator();
+        while (it.hasNext()) {
+            Usuario u = it.next();
+            if(u.getCedula().equals(usuario.getCedula())){
+                it.remove();
+                break;
+            }
+            
+        }
+    }
+
+    @Override
+    public List<Usuario> findAll() {
+        return listaUsuario;
+    }
+
+}
 
     
 
