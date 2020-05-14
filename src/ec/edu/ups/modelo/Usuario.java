@@ -135,7 +135,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "\nUsuario" + "\nCedula: " + cedula + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCorreo=" + correo + "\nContraseña: " + contraseña;
+        return "\nUsuario" + "\nCedula: " + cedula + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCorreo:" + correo + "\nContraseña: " + contraseña;
     }
 
 }
