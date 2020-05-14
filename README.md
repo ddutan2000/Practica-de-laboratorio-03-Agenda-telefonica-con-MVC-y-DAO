@@ -165,6 +165,7 @@ public class Usuario
   /**Atributos**
   *se declaran los atributos del Telefono.
   */
+  
     private int codigo;
     private String numero;
     private String tipo;
@@ -265,7 +266,7 @@ public class Usuario
 **clase VistaTelefono**
 */
 
-public class VistaTelefono {
+    public class VistaTelefono {
 /**atributos**
 *se crea un escanner para que el usuario pueda ingresar valores por teclado.
 */
@@ -421,7 +422,6 @@ public class VistaTelefono {
  *
  *dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipos Usuario y un String. 
  */
-
 `   public interface IUsuarioDAO{
 
         public void create(Usuario usuario);
