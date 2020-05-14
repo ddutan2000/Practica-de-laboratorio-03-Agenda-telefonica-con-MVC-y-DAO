@@ -43,7 +43,7 @@ public class Test {
         Map<String, List<Usuario>> map = new HashMap<String, List<Usuario>>();
 
         controladorUsuario.registrar();
-        String correo = u.getContraseña();
+        String correo = u.getCorreo();
         String contrasenia = u.getContraseña();
         String key = correo + contrasenia;
         map.put(key, null);
@@ -69,9 +69,8 @@ public class Test {
 
                         System.out.println("ingrese su correo electronico:");
                         String correo1 = input.next();
-                        System.out.println("ingrese contrseña");
+                        System.out.println("ingrese contraseña");
                         String contrasenia1 = input.next();
-                        String llave = correo1 + contrasenia1;
                         if (map.containsKey(key)) {
                             int opcion2;
                             boolean salir2 = false;
