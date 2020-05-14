@@ -5,17 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- *
- * @author Dutan2000
- */
-/**clase Usuario**
 
-public class Usuario
-    /**
-    **arributos**
-    *se declaran los atributos del usuario y a la mimsa vez tambien se instancia una lista para la clases Telefono.
-    */
+* @author Dutan2000
+
+**clase Usuario**
+
+    public class Usuario
+    
+   **arributos**
+   se declaran los atributos del usuario y a la mimsa vez tambien se instancia una lista para la clases Telefono.
+
     
     private String cedula;
     private String nombre;
