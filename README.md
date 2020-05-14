@@ -741,6 +741,7 @@ El constructor de esta clase tiene como parametros dos objetos de tipo Vista y d
 **ec.ups.edu.Test**
 
 **test**
+
 Al momento que corre el programa el usuario debe registrar un usario inmediatamente. Ete la va a pedir que llene todos los datos del usuario, a la misma vez se guarda la contraseña y el correo en una key. 
 Una vez que se haya registrado el usuario, aparece un menu y tiene la opcion de registrar un nuevo usuario o de registrar un telefono o varios.
 El usuario puede modificar, borrar y buscar usuarios y telefonos.
