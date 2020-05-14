@@ -41,7 +41,7 @@ public class Test {
 
         //diccionario
         Map<String, List<Usuario>> map = new HashMap<String, List<Usuario>>();
-        
+
         controladorUsuario.registrar();
         String correo = u.getContraseña();
         String contrasenia = u.getContraseña();
@@ -54,7 +54,7 @@ public class Test {
             System.out.println("*********************");
             System.out.println("Bienvenido al programa de Denys");
             System.out.println("1.Registrarse \n2.Ya tengo cuenta\n3.Salir");
-            
+
             try {
                 System.out.println("Eliga una opcion");
                 System.out.println("*********************");
@@ -80,7 +80,8 @@ public class Test {
                             while (!salir2) {
                                 System.out.println("Que quiere hacer");
                                 System.out.println("1.Registrar Telefono\n2.Modificar Telefono"
-                                        + "\n3.Eliminar telefono\n4.Buscar Telefono\n5.Listar telefonos\n6.Salir");
+                                        + "\n3.Eliminar telefono\n4.Buscar Telefono\n5.Listar telefonos\n6.modificar datos del Usuario"
+                                        + "\n7.Borrar usuario\n8.Buscar usuarios\n9.Listar usuarios\n10.Salir");
                                 try {
                                     System.out.println("Elija una opcion");
                                     opcion2 = input.nextInt();
@@ -102,8 +103,21 @@ public class Test {
                                             controladorTelefono.verTelefonos();
                                             break;
                                         case 6:
-                                            salir2 = true;
+                                            controladorTelefono.actulizar();
                                             break;
+                                        case 7:
+                                            controladorUsuario.eliminar();
+                                            break;
+                                        case 8:
+                                            controladorUsuario.verUsuario();
+                                            break;
+                                        case 9:
+                                            controladorUsuario.verUsuarios();
+                                            break;
+                                        case 10:
+                                            salir = true;
+                                            break;
+
                                         default:
                                             System.out.println("Solo numeros entre 1 y 6");
 
@@ -113,7 +127,7 @@ public class Test {
                                     input.nextInt();
                                 }
                             }
-                        }else{
+                        } else {
                             System.out.println("su correo o contraseña esta equivocado.");
                         }
                         break;
