@@ -267,17 +267,22 @@ public class Usuario
 
 public class VistaTelefono {
 /**atributos**
-*se creo un escanner para que el usuario pueda ingresar valores por teclado.
+*se crea un escanner para que el usuario pueda ingresar valores por teclado.
 */
 
     private Scanner entrada;
-    
-    
-
+ /**Constructor**
+ *se crea un contructor que instancie un nuevo Scanner cada vez que es declarado.
+ */
+ 
     public VistaTelefono(){
         entrada=new Scanner(System.in);
     }
     
+  /**metodos registrar, modificar, eliminar, buscar, ver telefono y ver lista de telefonos.**
+ *En estos metodos el usuario puede modificar a su gusto los datos del telefono. Todos estos datos seran ingresados por teclado. 
+ */
+ 
     public Telefono registrarTelefono(){
         entrada=new Scanner(System.in);
         System.out.println("Ingrese los datos del telefono: ");
@@ -327,4 +332,189 @@ public class VistaTelefono {
         }
     }
 }
+
+/**Clase vistaUsuario**
+*/
+
+     public class VistaUsuario {
+/**atributos** 
+*se crea un escanner para que el usuario pueda ingresar valores por teclado.
+*/
+
+    private Scanner entrada; 
+    
+ /**Constructor**
+ *se crea un contructor que instancie un nuevo Scanner cada vez que es declarado.
+ */
+
+    public VistaUsuario() {
+        entrada = new Scanner(System.in);
+    }
+    
+    
+ /**metodos registrar, modificar, eliminar, buscar, ver usuario y ver lista de usuarios**
+ *En estos metodos el usuario puede modificar a su gusto los datos del usuario. Todos estos datos seran ingresados por teclado. 
+ */
+ 
+    public Usuario registarUsuario(){
+        entrada=new Scanner(System.in);
+        System.out.println("Ingrese los datos del Usuario");
+        System.out.println("Cedula: ");
+        String cedula=entrada.next();
+        System.out.print("Nombre: ");
+        String nombre= entrada.next();
+        System.out.print("Apellido: ");
+        String apellido =entrada.next();
+        System.out.print("Correo: ");
+        String correo=entrada.next();
+        System.out.println("Contraseña: ");
+        String contrasenia=entrada.next();
+        
+        return new Usuario(cedula, nombre, apellido, correo, contrasenia);
+    }
+    
+    
+    //metodod actualizar
+    public Usuario modificarUsuario(){
+        entrada=new Scanner(System.in);
+        System.out.println("Ingresa la cedula del usuario que desea modificar");
+        String cedula = entrada.next();
+        System.out.println("Ingrese los nuevos datos del usuario (nombre, apellido, correo y contrseña)");
+        String nombre = entrada.next();
+        String apellido = entrada.next();
+        String correo=entrada.next();
+        String contrsenia=entrada.next();
+        return new Usuario(cedula, nombre, apellido, correo, contrsenia);
+    } 
+    
+    //metodo eliminar 
+    public Usuario eliminarUsuario(){
+        entrada=new Scanner(System.in);
+        System.out.println("Ingrese la cedula del usuario que desea eliminar");
+        String cedula =entrada.next();
+        
+        return new Usuario(cedula, null, null, null, null);
+    }
+    
+    //metodo buscar telefono
+    public String buscarUsuario(){
+        entrada=new Scanner (System.in);
+        System.out.println("Ingrese la cedula del usuario que desea buscar");
+        String cedula =entrada.next();
+        
+        return cedula;
+    } 
+    
+    //metodo listar telefonos
+    public void verUsuario(Usuario usuario){
+        System.out.println("Datos del usuario: "+ usuario);
+    }
+    
+    public void verUsuario(List<Usuario> usuarios){
+        for (Usuario usuario : usuarios) {
+            System.out.println("Datos del usuario: "+ usuario);
+        }
+    }
+
+ /**ec.edu.ups.IDAO**
+ **clase IUsarioDAO**
+ *
+ *dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipos Usuario y un String. 
+ */
+
+`   public interface IUsuarioDAO{
+
+        public void create(Usuario usuario);
+        public Usuario read(String codigo);
+        public void update(Usuario usuario);
+        public void delete(Usuario usuario);   
+        public List<Usuario> findAll();
+    }
+    
+ /**
+ **clase ITelefonoDAO**
+ *
+ *dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipo Telefono y un int. 
+ */
+
+     public interface ITelefono {
+     
+        public void create(Telefono telefono);
+        public Telefono read(int codigo);
+        public void update(Telefono telefono);
+        public void delete(Telefono telefono);   
+        public List<Telefono> findAll();
+    }
+
+/**ec.ups.edu.IDAO
+**clase TelefonDao**
+*Esta clase impementa los metodos de la inteface ITelefonoDAO.
+*/
+public class TelefonoDao implements ITelefono{
+
+  /**Atributos**
+  *Esta clase tiene como atributos la lista Telefono.
+  */
+    private List<Telefono> listaTelefono;
+    
+  /**constructores**
+  *esta clase tiene un constructor la cual crea una nueva lista cada vez que es instanciado.
+  */
+
+    public TelefonoDao() {
+        listaTelefono=new ArrayList<>();
+    }
+  /**metodos CRUD**
+  *estos metods impementan  
+
+    @Override
+    public void create(Telefono telefono) {
+        listaTelefono.add(telefono);
+    }
+
+    @Override
+    public Telefono read(int codigo) {
+        for (Telefono telefono : listaTelefono) {
+            if(telefono.getCodigo()==codigo){
+                return telefono;
+                
+            }
+            
+        }
+        return null;
+    }
+
+    @Override
+    public void update(Telefono telefono) {
+        for (int i = 0; i < listaTelefono.size(); i++) {
+            Telefono t=listaTelefono.get(i);
+            if(t.getCodigo()==telefono.getCodigo()){
+                listaTelefono.set(i, telefono);
+                break;
+            }
+            
+        }
+    }
+
+    @Override
+    public void delete(Telefono telefono) {
+        Iterator<Telefono> it=listaTelefono.iterator();
+        while (it.hasNext()){
+            Telefono t = it.next();
+            if(t.getCodigo()==telefono.getCodigo()){
+                it.remove();
+                break;
+            }
+        }
+    }
+
+    @Override
+    public List<Telefono> findAll() {
+        return listaTelefono;
+    }
+}
+
+
+    
+
 
