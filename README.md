@@ -436,12 +436,12 @@ Se crea un escanner para que el usuario pueda ingresar valores por teclado.
         public List<Usuario> findAll();
     }
     
- **Clase ITelefonoDAO**
+**Clase ITelefonoDAO**
  
- Dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipo Telefono y un int. 
-
+Dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipo Telefono y un int. 
 
      public interface ITelefono {
+**Metodo CRUD**
      
         public void create(Telefono telefono);
         public Telefono read(int codigo);
@@ -473,7 +473,7 @@ Esta clase tiene un constructor la cual crea una nueva lista cada vez que es ins
     public TelefonoDao() {
         listaTelefono=new ArrayList<>();
     }
-**Metodos CRUD**
+**Metodos de herencia CRUD**
 
 Estos metodos impementan los metodos de la interface Itelefono. Etos metodos permiten Crear, leer o confirmar, actualizar, borrar y listar los objetos de tipo Telefono.    
 
@@ -524,28 +524,29 @@ Estos metodos impementan los metodos de la interface Itelefono. Etos metodos per
     }
 }
 
-**clase UsuarioDao**
-*Esta clase impementa los metodos de la inteface IUsuarioDAO.
-*/
+**Clase UsuarioDao**
+
+Esta clase impementa los metodos de la inteface IUsuarioDAO.
+
 
     public class UsuarioDAO implements IUsuarioDAO {
 
- /**Atributos**
- *Esta clase tiene como atributos la lista Usuario.
- */
+**Atributos**
+
+Esta clase tiene como atributos la lista Usuario.
+
 
     private List<Usuario> listaUsuario;
     
-  /**Constructores**
-  *esta clase tiene un constructor la cual crea una nueva lista cada vez que es instanciado.
-  */
+**Constructores**
+Esta clase tiene un constructor la cual crea una nueva lista cada vez que es instanciado.
 
     public UsuarioDAO() {
         listaUsuario = new ArrayList<>();
     }
 
-/**metodos CRUD**
- *Estos metodos impementan los metodos de la interface Itelefono. Etos metodos permiten Crear, leer o confirmar, actualizar, borrar y listar los objetos de tipo Telefono. 
+**Metodos de herencia CRUD**
+Estos metodos impementan los metodos de la interface Itelefono. Etos metodos permiten Crear, leer o confirmar, actualizar, borrar y listar los objetos de tipo Telefono. 
  
     @Override
     public void create(Usuario usuario) {
@@ -590,45 +591,40 @@ Estos metodos impementan los metodos de la interface Itelefono. Etos metodos per
     public List<Usuario> findAll() {
         return listaUsuario;
     }
-}
+  }
 
 
-/**ec.ups.edu.Controlador
+**ec.ups.edu.Controlador**
 
-**Clase ControladorTelefono
-*/
+**Clase ControladorTelefono**
 
-public class ControladorTelefono {
-/*Atributo privado de paquete vista 
-*/
+  public class ControladorTelefono {
+
+Atributo privado de paquete vista 
 
     private VistaTelefono vistatelefono;
     
-/*Atributo privado de paquete modelo
-*/
+Atributo privado de paquete modelo
 
     private Telefono telefono;
 
-/*Atributo privado de paquete IDAO
-*/
+Atributo privado de paquete IDAO
 
     private ITelefono telefonoDAO;
     
-/**Constructor**
+**Constructor**
 
 El constructor de esta clase tiene como parametros un objeto de tipo VistaTelefono y un objeto de tipo Itelefono.
-*/
 
     public ControladorTelefono(VistaTelefono vistatelefono, ITelefono telefonoDAO) {
         this.vistatelefono = vistatelefono;
         this.telefonoDAO = telefonoDAO;
     }
     
- /**Metodos DAO**
+**Metodos DAO**
  
  Estos metodos asignan un valor al objeto de tipo Telefono y estos mismos llaman al metodo DAO y lo asignan en su clase, archivandolo.
  Estos metodos permiten registrar, ver, actualizar, eliminar, y listar un telfono o varios. 
- */
  
     public void registrar(){
         telefono=vistatelefono.registrarTelefono();
@@ -665,27 +661,27 @@ El constructor de esta clase tiene como parametros un objeto de tipo VistaTelefo
 
    public class ControladorUsuario {
     
-/*Atributo privado de paquete vista 
-*/
+Atributo privado de paquete vista 
+
     private VistaUsuario vistaUsuario;
     private VistaTelefono vistaTelefono;
     
-/*Atributo privado de paquete modelo
-*/
+Atributo privado de paquete modelo
+
 
     private Usuario usuario;
     private Telefono telefono;
 
-/*Atributo privado de paquete IDAO
-*/
+Atributo privado de paquete IDAO
+
 
     private IUsuarioDAO usuarioDAO;
     private ITelefono telefonoDAO;
     
-/**Constructor**
+**Constructor**
 
 El constructor de esta clase tiene como parametros dos objetos de tipo Vista y dos objetos de tipo IDAO.
-*/
+
 
     public ControladorUsuario(VistaUsuario vistaUsuario, IUsuarioDAO usuarioDAO,VistaTelefono vistaTelefono, ITelefono telefonoDAO) {
         this.vistaUsuario = vistaUsuario;
@@ -696,12 +692,12 @@ El constructor de esta clase tiene como parametros dos objetos de tipo Vista y d
     }
     
 
- /**Metodos DAO**
+**Metodos DAO**
  
  Estos metodos asignan un valor al objeto de tipo Usuario y estos mismos llaman al metodo DAO y lo asignan en su clase, archivandolo.
  Estos metodos permiten registrar, ver, actualizar, eliminar, y listar un usuario o varios.
  Este metodo tambien tiene un metodo de agregacion para que el usuario pueda añadir un telefono. 
- */
+
  
     public void registrar(){
        usuario= vistaUsuario.registarUsuario();
