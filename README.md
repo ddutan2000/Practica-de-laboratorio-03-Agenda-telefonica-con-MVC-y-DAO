@@ -517,16 +517,30 @@ public class TelefonoDao implements ITelefono{
         return listaTelefono;
     }
 }
-/**
 
-public class UsuarioDAO implements IUsuarioDAO {
+/**clase UsuarioDao**
+*Esta clase impementa los metodos de la inteface IUsuarioDAO.
+*/
+
+    public class UsuarioDAO implements IUsuarioDAO {
+
+ /**Atributos**
+ *Esta clase tiene como atributos la lista Usuario.
+ */
 
     private List<Usuario> listaUsuario;
+    
+  /**Constructores**
+  *esta clase tiene un constructor la cual crea una nueva lista cada vez que es instanciado.
+  */
 
     public UsuarioDAO() {
         listaUsuario = new ArrayList<>();
     }
 
+/**metodos CRUD**
+ *Estos metodos impementan los metodos de la interface Itelefono. Etos metodos permiten Crear, leer o confirmar, actualizar, borrar y listar los objetos de tipo Telefono. 
+ 
     @Override
     public void create(Usuario usuario) {
         listaUsuario.add(usuario);
@@ -570,9 +584,159 @@ public class UsuarioDAO implements IUsuarioDAO {
     public List<Usuario> findAll() {
         return listaUsuario;
     }
-
 }
 
+
+/**ec.ups.edu.Controlador
+
+**Clase ControladorTelefono
+*/
+
+public class ControladorTelefono {
+/*Atributo privado de paquete vista 
+*/
+
+    private VistaTelefono vistatelefono;
     
+/*Atributo privado de paquete modelo
+*/
+
+    private Telefono telefono;
+
+/*Atributo privado de paquete IDAO
+*/
+
+    private ITelefono telefonoDAO;
+    
+/**Constructor**
+
+El constructor de esta clase tiene como parametros un objeto de tipo VistaTelefono y un objeto de tipo Itelefono.
+*/
+
+    public ControladorTelefono(VistaTelefono vistatelefono, ITelefono telefonoDAO) {
+        this.vistatelefono = vistatelefono;
+        this.telefonoDAO = telefonoDAO;
+    }
+    
+ /**Metodos DAO**
+ 
+ Estos metodos asignan un valor al objeto de tipo Telefono y estos mismos llaman al metodo DAO y lo asignan en su clase, archivandolo.
+ Estos metodos permiten registrar, ver, actualizar, eliminar, y listar un telfono o varios. 
+ */
+ 
+    public void registrar(){
+        telefono=vistatelefono.registrarTelefono();
+        telefonoDAO.create(telefono);
+    }
+    
+    //llama al dao para obtener un telefono por el codigo y luego enviar a vista 
+    public void verTelefono(){
+        int codigo=vistatelefono.buscarTelefono();
+        telefono=telefonoDAO.read(codigo);
+        vistatelefono.verTelefono(telefono);
+    }
+     //llamar al dao para que actualize un telefono
+    public void actulizar(){
+        telefono=vistatelefono.modificarTelefono();
+        telefonoDAO.update(telefono);
+    }
+    //llamar al DAO elimianr un telefono
+    public void eliminar(){
+        telefono=vistatelefono.elimiarTelefono();
+        telefonoDAO.delete(telefono);
+    }
+    //llamar al DAO para obtener todos los telefonos y luego enviar a vista 
+    public void verTelefonos(){
+        List<Telefono> telefonos;
+        telefonos=telefonoDAO.findAll();
+        vistatelefono.verTelefonos(telefonos);
+    }
+}
+
+
+**Clase ControladorUsuario**
+
+
+   public class ControladorUsuario {
+    
+/*Atributo privado de paquete vista 
+*/
+    private VistaUsuario vistaUsuario;
+    private VistaTelefono vistaTelefono;
+    
+/*Atributo privado de paquete modelo
+*/
+
+    private Usuario usuario;
+    private Telefono telefono;
+
+/*Atributo privado de paquete IDAO
+*/
+
+    private IUsuarioDAO usuarioDAO;
+    private ITelefono telefonoDAO;
+    
+/**Constructor**
+
+El constructor de esta clase tiene como parametros dos objetos de tipo Vista y dos objetos de tipo IDAO.
+*/
+
+    public ControladorUsuario(VistaUsuario vistaUsuario, IUsuarioDAO usuarioDAO,VistaTelefono vistaTelefono, ITelefono telefonoDAO) {
+        this.vistaUsuario = vistaUsuario;
+        this.usuarioDAO = usuarioDAO;
+        
+        this.telefonoDAO = telefonoDAO;
+        this.vistaTelefono = vistaTelefono;
+    }
+    
+
+ /**Metodos DAO**
+ 
+ Estos metodos asignan un valor al objeto de tipo Usuario y estos mismos llaman al metodo DAO y lo asignan en su clase, archivandolo.
+ Estos metodos permiten registrar, ver, actualizar, eliminar, y listar un usuario o varios.
+ Este metodo tambien tiene un metodo de agregacion para que el usuario pueda añadir un telefono. 
+ */
+ 
+    public void registrar(){
+       usuario= vistaUsuario.registarUsuario();
+       usuarioDAO.create(usuario);
+    }
+    
+    //llamar al DAO para obtener usuario por la cedula y luego muestra en la vista 
+    public void verUsuario(){
+        String cedula=vistaUsuario.buscarUsuario();
+        usuario=usuarioDAO.read(cedula);
+        vistaUsuario.verUsuario(usuario);
+    }
+    //llamar a DAO para actualizar un usuario
+    public void actualizar(){
+        usuario=vistaUsuario.modificarUsuario();
+        usuarioDAO.update(usuario);
+    }
+    
+    //eliminar un cliente 
+    public void eliminar(){
+        usuario = vistaUsuario.eliminarUsuario();
+        usuarioDAO.delete(usuario);
+        
+    }
+    
+    //llama al DAO para obtener todos los Usuarios y luego mostrar en vista
+    public void verUsuarios(){
+        List<Usuario>usuarios;
+        usuarios =usuarioDAO.findAll();
+        vistaUsuario.verUsuario(usuarios);
+    }
+    
+    //metodo de agregacion de telefono
+    public void agregarTelefono(){
+        int codigo=vistaTelefono.buscarTelefono();
+        //probablemente un metodo de if si es que no exsiste el el telefono
+        telefono=telefonoDAO.read(codigo);
+        usuario.agregarTelefono(telefono);
+        usuarioDAO.update(usuario);
+    }
+}
+
 
 
