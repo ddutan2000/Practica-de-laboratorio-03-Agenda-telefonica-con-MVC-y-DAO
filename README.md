@@ -6,14 +6,15 @@ import java.util.List;
 import java.util.Objects;
 
 
-* @author Dutan2000
+* @author Denys Dutan
 
-**clase Usuario**
+**Clase Usuario**
 
     public class Usuario
     
-   **arributos**
-   se declaran los atributos del usuario y a la mimsa vez tambien se instancia una lista para la clases Telefono.
+   **Atributos**
+   
+   Se declaran los atributos del usuario y a la mimsa vez tambien se instancia una lista para la clases Telefono.
 
     
     private String cedula;
@@ -24,11 +25,10 @@ import java.util.Objects;
     private List<Telefono> telefonos;
 
 
-  /**
   **constructores**
-  *se instancio dos contructores en la cual el primer constructor crea una nueva Array list para el objeto de tipo Telefono.
-  *En el segundo constructor se encuentra todos los atributos de la clase usuario, pero estas estan colocadas como parametros del            constructor.
-  */
+  
+  se instancio dos contructores en la cual el primer constructor crea una nueva Array list para el objeto de tipo Telefono.
+  En el segundo constructor se encuentra todos los atributos de la clase usuario, pero estas estan colocadas como parametros del            constructor.
     
     
     public Usuario() {
@@ -45,11 +45,9 @@ import java.util.Objects;
     }
   
   
-  /**
   **Getter y Setters**
-  *los metodos getters devuelven un objeto de la clase Usuario.
-  *los metodos setters colocan un objeto en la clase Usuario.
-  */
+  Los metodos getters devuelven un objeto de la clase Usuario.
+  Los metodos setters colocan un objeto en la clase Usuario.
     
     public String getCedula() {
         return cedula;
@@ -91,9 +89,9 @@ import java.util.Objects;
         this.contraseña = contraseña;
     }
     
-/**
-*los metodos para agregar, modificar, eliminar,buscar un telefono, y ver la lista de telefonos. se encuentran instanciados en la clase Usuario ya que el usuario una vez ingresado en el programa tiene que ingresar datos de tipo telefono. 
-*/
+**Metodos**
+
+Los metodos para agregar, modificar, eliminar,buscar un telefono, y ver la lista de telefonos. se encuentran instanciados en la clase Usuario ya que el usuario una vez ingresado en el programa tiene que ingresar datos de tipo telefono. 
 
     public void agregarTelefono(Telefono telefono) {
         telefonos.add(telefono);
@@ -122,11 +120,11 @@ import java.util.Objects;
         return telefonos;
     }
     
-  /**metodos de clase object**
-  *este metodo asigna un valor unico a la cedula 
-  *El metodo equals compara el onjeto para ver si es igual.
-  *El metodo toString() convierte una linea de codigos en String.
-  */
+ **metodos de clase object**
+ 
+  Este metodo asigna un valor unico a la cedula 
+  El metodo equals compara el onjeto para ver si es igual.
+  El metodo toString() convierte una linea de codigos en String.
 
     @Override
     public int hashCode() {
@@ -158,22 +156,23 @@ import java.util.Objects;
         return "\nUsuario" + "\nCedula: " + cedula + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nCorreo:" + correo + "\nContraseña: " + contraseña;
     }
     
-  /**Clase Telefono**
+ **Clase Telefono**
   
     public class Telefono {
-  /**Atributos**
-  *se declaran los atributos del Telefono.
-  */
+    
+**Atributos**
+ se declaran los atributos del Telefono.
+
   
     private int codigo;
     private String numero;
     private String tipo;
     private String operadora;
     
-  /**constructores**
-  *Primero se declara un contructor normal.
-  *segundo se declara un constructor con los atributos de la clase telefono y esta son colocadas como parametros del constructor.
-  */
+ **constructores**
+  Primero se declara un contructor normal.
+  segundo se declara un constructor con los atributos de la clase telefono y esta son colocadas como parametros del constructor.
+
 
     public Telefono() {
     }
@@ -185,11 +184,12 @@ import java.util.Objects;
         this.operadora = operadora;
     }
     
-  /**
+
   **Getter y Setters**
-  *los metodos getters devuelven un objeto de la clase Usuario.
-  *los metodos setters colocan un objeto en la clase Usuario.
-  */
+  
+  los metodos getters devuelven un objeto de la clase Usuario.
+  los metodos setters colocan un objeto en la clase Usuario.
+ 
   
     public int getCodigo() {
         return codigo;
@@ -223,11 +223,10 @@ import java.util.Objects;
         this.operadora = operadora;
     }
     
-  /**metodos de clase object**
-  *este metodo asigna un valor unico a la cedula 
-  *El metodo equals compara el onjeto para ver si es igual.
-  *El metodo toString() convierte una linea de codigos en String.
-  */ 
+**metodos de clase object**
+  Este metodo asigna un valor unico a la cedula 
+  El metodo equals compara el onjeto para ver si es igual.
+  El metodo toString() convierte una linea de codigos en String. 
 
     @Override
     public int hashCode() {
@@ -261,27 +260,28 @@ import java.util.Objects;
     
 }
 
-/**ec.ups.edu.vista**
+**ec.ups.edu.vista**
+
 **clase VistaTelefono**
-*/
+
 
     public class VistaTelefono {
-/**atributos**
-*se crea un escanner para que el usuario pueda ingresar valores por teclado.
-*/
+**Atributos**
+Se crea un escanner para que el usuario pueda ingresar valores por teclado.
+
 
     private Scanner entrada;
- /**Constructor**
- *se crea un contructor que instancie un nuevo Scanner cada vez que es declarado.
- */
+ **Constructor**
+ Se crea un contructor que instancie un nuevo Scanner cada vez que es declarado.
+
  
     public VistaTelefono(){
         entrada=new Scanner(System.in);
     }
     
-  /**metodos registrar, modificar, eliminar, buscar, ver telefono y ver lista de telefonos.**
- *En estos metodos el usuario puede modificar a su gusto los datos del telefono. Todos estos datos seran ingresados por teclado. 
- */
+ **metodos registrar, modificar, eliminar, buscar, ver telefono y ver lista de telefonos.**
+ En estos metodos el usuario puede modificar a su gusto los datos del telefono. Todos estos datos seran ingresados por teclado. 
+
  
     public Telefono registrarTelefono(){
         entrada=new Scanner(System.in);
@@ -331,30 +331,31 @@ import java.util.Objects;
             System.out.println("Datos del telefono: "+ telefono);
         }
     }
-}
 
-/**Clase vistaUsuario**
-*/
+**Clase vistaUsuario**
 
-     public class VistaUsuario {
-/**atributos** 
-*se crea un escanner para que el usuario pueda ingresar valores por teclado.
-*/
+     public class VistaUsuario 
+     
+**Atributos** 
+
+Se crea un escanner para que el usuario pueda ingresar valores por teclado.
+
 
     private Scanner entrada; 
     
- /**Constructor**
- *se crea un contructor que instancie un nuevo Scanner cada vez que es declarado.
- */
+ **Constructor**
+ 
+ Se crea un contructor que instancie un nuevo Scanner cada vez que es declarado.
 
     public VistaUsuario() {
         entrada = new Scanner(System.in);
     }
     
     
- /**metodos registrar, modificar, eliminar, buscar, ver usuario y ver lista de usuarios**
- *En estos metodos el usuario puede modificar a su gusto los datos del usuario. Todos estos datos seran ingresados por teclado. 
- */
+ **Metodos registrar, modificar, eliminar, buscar, ver usuario y ver lista de usuarios**
+ 
+ En estos metodos el usuario puede modificar a su gusto los datos del usuario. Todos estos datos seran ingresados por teclado. 
+
  
     public Usuario registarUsuario(){
         entrada=new Scanner(System.in);
@@ -416,15 +417,16 @@ import java.util.Objects;
         }
     }
 
- /**ec.edu.ups.IDAO**
+**ec.edu.ups.IDAO**
  
- **Clase IUsarioDAO**
+**Clase IUsarioDAO**
 
     public interface IUsuarioDAO{
     
- /**metodos CRUD**
+**Metodos CRUD**
+
  Dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipos Usuario y un String. 
- */
+
 `   public interface IUsuarioDAO{
 
         public void create(Usuario usuario);
@@ -434,11 +436,10 @@ import java.util.Objects;
         public List<Usuario> findAll();
     }
     
- /**
- **clase ITelefonoDAO**
- *
- *dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipo Telefono y un int. 
- */
+ **Clase ITelefonoDAO**
+ 
+ Dentro de esta interface se declaran los metodos CRUD y recibiendo como parametros objetos de tipo Telefono y un int. 
+
 
      public interface ITelefono {
      
@@ -449,26 +450,32 @@ import java.util.Objects;
         public List<Telefono> findAll();
     }
 
-/**ec.ups.edu.IDAO
-**clase TelefonDao**
-*Esta clase impementa los metodos de la inteface ITelefonoDAO.
-*/
-public class TelefonoDao implements ITelefono{
+**ec.ups.edu.IDAO**
 
-  /**Atributos**
-  *Esta clase tiene como atributos la lista Telefono.
-  */
+**clase TelefonDao**
+
+Esta clase impementa los metodos de la inteface ITelefonoDAO.
+
+
+    public class TelefonoDao implements ITelefono{
+
+**Atributos**
+
+Esta clase tiene como atributos la lista Telefono.
+
     private List<Telefono> listaTelefono;
     
-  /**constructores**
-  *esta clase tiene un constructor la cual crea una nueva lista cada vez que es instanciado.
-  */
+**Constructores**
+
+Esta clase tiene un constructor la cual crea una nueva lista cada vez que es instanciado.
+
 
     public TelefonoDao() {
         listaTelefono=new ArrayList<>();
     }
-  /**metodos CRUD**
-  *Estos metodos impementan los metodos de la interface Itelefono. Etos metodos permiten Crear, leer o confirmar, actualizar, borrar y listar los objetos de tipo Telefono.    
+**Metodos CRUD**
+
+Estos metodos impementan los metodos de la interface Itelefono. Etos metodos permiten Crear, leer o confirmar, actualizar, borrar y listar los objetos de tipo Telefono.    
 
     @Override
     public void create(Telefono telefono) {
@@ -517,7 +524,7 @@ public class TelefonoDao implements ITelefono{
     }
 }
 
-/**clase UsuarioDao**
+**clase UsuarioDao**
 *Esta clase impementa los metodos de la inteface IUsuarioDAO.
 */
 
