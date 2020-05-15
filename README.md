@@ -432,9 +432,8 @@ Dentro de esta interfaz se declaran los métodos CRUD (créate,read,update,delet
     }
     
 **Clase ITelefonoDAO**
-  
 
-     public interface ITelefono {
+    public interface ITelefono {
      
 **Metodos CRUD**
 
@@ -449,7 +448,7 @@ Dentro de esta interface se declaran los metodos CRUD (create,read,update,delete
 
 **ec.ups.edu.IDAO**
 
-**clase TelefonDao**
+**Clase TelefonDao**
 
 Esta clase impementa los metodos de la intefaz ITelefonoDAO.
 
@@ -464,7 +463,6 @@ Esta clase tiene como atributos la lista Teléfono.
 **Constructores**
 
 Esta clase tiene un constructor la cual crea una nueva lista cada vez que es instanciado.
-
 
     public TelefonoDao() {
         listaTelefono=new ArrayList<>();
@@ -523,7 +521,6 @@ Estos métodos implementan los métodos de la interfaz ITelefono. Estos métodos
 **Clase UsuarioDao**
 
 Esta clase impementa los metodos de la intefaz IUsuarioDAO.
-
 
     public class UsuarioDAO implements IUsuarioDAO {
 
@@ -595,7 +592,7 @@ Estos métodos implementan los métodos de la interfaz ITelefono. Estos métodos
 
 **Clase ControladorTelefono**
 
-  public class ControladorTelefono {
+    public class ControladorTelefono {
 
 Atributo privado de paquete vista 
 
@@ -654,7 +651,7 @@ Estos métodos asignan un valor al objeto de tipo Teléfono y estos mismos llama
 
 **Clase ControladorUsuario**
 
-   public class ControladorUsuario {
+    public class ControladorUsuario {
     
 Atributo privado de paquete vista 
 
@@ -733,7 +730,7 @@ Estos métodos asignan un valor al objeto de tipo Usuario y estos mismos llaman 
 
 Al momento que corre el programa el usuario debe registrar un usuario inmediatamente. Este la va a pedir que llene todos los datos del usuario, a la misma vez se guarda la contraseña y el correo en una key. Una vez que se haya registrado el usuario, aparece un menú y tiene la opción de registrar un nuevo usuario o de registrar un teléfono o varios. El usuario puede modificar, borrar y buscar usuarios y teléfonos. La ultima opción del menú lo saca del programa y deja de correr el programa.
 
-  public class Test {
+    public class Test {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
